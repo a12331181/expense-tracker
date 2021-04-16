@@ -1,0 +1,43 @@
+<div class="container" style="width: 60%">
+  <div class="d-flex flex-column mt-3" style="color:#88556d;">
+    <div class="form-group d-flex justify-content-center">
+      <label for="experience"></label>
+      <select name="experience" id="experience" class="form-control-lg col-8">
+        <option value="0">類別</option>
+        <option value="1">1 - 3 年</option>
+      </select>
+    </div>
+    <div class="col-3">
+      <h4><strong>總金額:</strong></h4>
+    </div>
+    <div class="d-flex align-items-center flex-column my-3 mr-2">
+      <h1 class="display-3">33333</h1>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-home fa-3x pt-2 pl-3 py-1"></i>
+          <div class="col-sm-8 d-flex flex-column">
+            <h3 class="my-2 mx-1">標題</h3>
+            <h5 class="my-2 mx-2">時間</h5>
+          </div>
+        </div>
+        <div>
+          <h1>金額</h1>
+        </div>
+        <div class="col-auto">
+          <a class="btn btn-secondary" href="./todos/{{ this._id }}">修改</a>
+          <form action="./todos/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+            <button class="btn btn-danger" type="submit">刪除</button>
+          </form>
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="d-flex justify-content-center my-3">
+      <a class="btn btn-warning" href="./expense-tracker/new" role="button">新增支出</a>
+    </div>
+  </div>
+</div>

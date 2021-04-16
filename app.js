@@ -22,6 +22,11 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
+app.get('/expense-tracker/new', (req, res) => {
+  res.render('new')
+})
+
+
 app.listen(3000,() => {
   console.log('App is running on http://localhost:3000')
 })

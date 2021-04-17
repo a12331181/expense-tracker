@@ -32,12 +32,14 @@ app.get('/expense-tracker/new', (req, res) => {
   res.render('new')
 })
 
-app.post('/expense-tracker',(req,res) =>{
+app.post('/expense-tracker', (req, res) => {
   const name = req.body.name
   const date = req.body.date
   const category = req.body.category
-  const amount = req.body.amount
-  console.log(name,date,category,amount)
+  const amount = req.body.amount    
+  return Record.create({ name,date,category,amount })   
+    .then(() => res.redirect('/')) 
+    .catch(error => console.log(error))
 })
 
 app.listen(3000,() => {

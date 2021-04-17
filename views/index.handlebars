@@ -15,16 +15,17 @@
     </div>
 
     <ul class="list-group">
+      {{#each records}}
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
           <i class="fas fa-home fa-3x pt-2 pl-3 py-1"></i>
           <div class="col-sm-8 d-flex flex-column">
-            <h3 class="my-2 mx-1">標題</h3>
-            <h5 class="my-2 mx-2">時間</h5>
+            <h3 class="my-2 mx-1">{{ this.name }}</h3>
+            <h5 class="my-2 mx-2">{{ this.date }}</h5>
           </div>
         </div>
         <div>
-          <h1>金額</h1>
+          <h1>{{ this.amount }}</h1>
         </div>
         <div class="col-auto">
           <a class="btn btn-secondary" href="./todos/{{ this._id }}">修改</a>
@@ -33,7 +34,7 @@
           </form>
         </div>
       </li>
-
+      {{/each}}
     </ul>
 
     <div class="d-flex justify-content-center my-3">

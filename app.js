@@ -3,12 +3,15 @@ const app = express()
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const db = mongoose.connection
+const bodyParser = require('body-parser')
+const Record = require('./models/Record')
+const Category = require('./models/Category')
 
 mongoose.connect('mongodb://localhost/Record', { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
-
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 db.on('error', () => {
@@ -19,13 +22,23 @@ db.once('open',() => {
 })
 
 app.get('/', (req, res) => {
-  res.render('index')
+  Record.find()
+    .lean()
+    .then(records => res.render('index', { records })) 
+    .catch(error => console.error(error)) 
 })
 
 app.get('/expense-tracker/new', (req, res) => {
   res.render('new')
 })
 
+app.post('/expense-tracker',(req,res) =>{
+  const name = req.body.name
+  const date = req.body.date
+  const category = req.body.category
+  const amount = req.body.amount
+  console.log(name,date,category,amount)
+})
 
 app.listen(3000,() => {
   console.log('App is running on http://localhost:3000')

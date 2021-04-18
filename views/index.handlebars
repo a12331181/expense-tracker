@@ -18,7 +18,7 @@
       {{#each records}}
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-          <i class="fas fa-home fa-3x pt-2 pl-3 py-1"></i>
+          <i id="{{ this.category }}" class="fas fa-home fa-3x pt-2 pl-3 py-1"></i>
           <div class="col-sm-8 d-flex flex-column">
             <h3 class="my-2 mx-1">{{ this.name }}</h3>
             <h5 class="my-2 mx-2">{{ this.date }}</h5>
@@ -28,7 +28,7 @@
           <h1>{{ this.amount }}</h1>
         </div>
         <div class="col-auto">
-          <a class="btn btn-secondary" href="./todos/{{ this._id }}">修改</a>
+          <a class="btn btn-secondary" href="./expense-tracker/{{ this._id }}/edit">修改</a>
           <form action="./todos/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
             <button class="btn btn-danger" type="submit">刪除</button>
           </form>

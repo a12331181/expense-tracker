@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const Record = require('./models/Record')
 const Category = require('./models/Category')
 
-mongoose.connect('mongodb://localhost/Record', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
@@ -22,11 +22,26 @@ db.once('open',() => {
 })
 
 app.get('/', (req, res) => {
+  let totalAmount = 0
   Record.find()
     .lean()
-    .then(records => res.render('index', { records })) 
-    .catch(error => console.error(error)) 
+    .then(records => {
+      records.forEach(record => {
+        totalAmount += record.amount
+        Category.find()
+          .then(categories => {
+            categories.forEach(category => {
+            if (record.category === category.name){
+              record.icon = category.icon
+            }
+          })
+        })
+      })
+      res.render('index', { records,totalAmount })
+    })
+    .catch(error => console.error(error))
 })
+
 
 app.get('/expense-tracker/new', (req, res) => {
   res.render('new')

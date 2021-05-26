@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const db = mongoose.connection
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override') 
 const Record = require('./models/Record')
 const Category = require('./models/Category')
 
@@ -13,6 +14,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
 
 db.on('error', () => {
   console.log('mongodb error!')
@@ -101,7 +103,7 @@ app.post('/expense-tracker', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/expense-tracker/:id/edit', (req, res) => {
+app.put('/expense-tracker/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const date = req.body.date
@@ -119,7 +121,7 @@ app.post('/expense-tracker/:id/edit', (req, res) => {
   .catch(error => console.log(error))
 })
 
-app.post('/expense-tracker/:id/delete', (req, res) => {
+app.delete('/expense-tracker/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())

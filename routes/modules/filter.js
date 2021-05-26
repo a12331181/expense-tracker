@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
           })
         }
       })
-      res.render('index', { filterList,totalAmount })
+      res.render('index', { filterList,totalAmount,filterCategory })
     })
 })
 

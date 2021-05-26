@@ -6,6 +6,7 @@ const Record = require('../../models/Record')
 
 router.get('/', (req, res) => {
   let totalAmount = 0
+  let filterCategory = '全部支出'
   Record.find()
     .lean()
     .then(records => {
@@ -20,7 +21,7 @@ router.get('/', (req, res) => {
           })
         })
       })
-      res.render('index', { records,totalAmount })
+      res.render('index', { records,totalAmount,filterCategory })
     })
     .catch(error => console.error(error))
 })

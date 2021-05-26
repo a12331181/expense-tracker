@@ -2,29 +2,29 @@
   <div class="d-flex flex-column mt-3">
     <div class="row">
       <p class="col-4" style="color:#88556d">*必填欄位</p>
-      <h1 class="display-5 ml-2">請輸入你的支出</h1>
+      <h2 class="mt-4 mx-3"><strong>請輸入你的支出</strong></h2>
     </div>
 
     <form action="/records" method="POST">
       <div class="row mt-5">
         <label class="col-4 mt-2" for="name">
-          <h2>名稱*:</h2>
+          <h3>名稱*:</h3>
         </label>
-        <input id="name" name="name" type="text" style="width:300px">
+        <input id="name" name="name" type="text" class="col-6 form-control mt-2" style="width:300px">
       </div>
 
       <div class="row mt-5">
         <label class="col-4 mt-2" for="date">
-          <h2>日期*:</h2>
+          <h3>日期*:</h3>
         </label>
-        <input id="date" name="date" type="date" style="width:300px">
+        <input id="date" name="date" type="date" class="col-6 form-control mt-2" style="width:300px">
       </div>
 
       <div class="row mt-5">
         <label class="col-4 mt-2" for="category">
-          <h2>類別*:</h2>
+          <h3>類別*:</h3>
         </label>
-        <select id="category" class="form-control mt-2" name="category" style="width:300px">
+        <select id="category" class="col-6 form-control mt-2" name="category" style="width:300px">
           <option>家居物業</option>
           <option>交通出行</option>
           <option>休閒娛樂</option>
@@ -35,9 +35,9 @@
 
       <div class="row mt-5">
         <label class="col-4 mt-2" for="amount">
-          <h2>金額*:</h2>
+          <h3>金額*:</h3>
         </label>
-        <input id="amount" name="amount" type="number" style="width:300px">
+        <input id="amount" name="amount" type="number" class="mt-2 col-6 form-control" style="width:300px">
       </div>
 
       <div class="mt-5 ml-3 d-flex justify-content-center">

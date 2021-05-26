@@ -1,6 +1,6 @@
 <div class="container" style="width: 70%">
   <div class="d-flex flex-column mt-3" style="color:#88556d;">
-    <form action="/" method="POST">
+    <form action="/filter" method="POST">
       <div class="form-group d-flex justify-content-center">
         <label for="filterCategory"></label>
         <select name="filterCategory" id="filterCategory" class="form-control-lg col-8" onchange="this.form.submit()">
@@ -36,8 +36,8 @@
           <h1>{{ this.amount }}</h1>
         </div>
         <div class="col-auto">
-          <a class="btn btn-secondary" href="./expense-tracker/{{ this._id }}/edit">修改</a>
-          <form action="./expense-tracker/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+          <a class="btn btn-secondary" href="./records/{{ this._id }}/edit">修改</a>
+          <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
             <button class="btn btn-danger" type="submit">刪除</button>
           </form>
         </div>
@@ -59,8 +59,8 @@
           <h1>{{ this.amount }}</h1>
         </div>
         <div class="col-auto">
-          <a class="btn btn-secondary" href="./expense-tracker/{{ this._id }}/edit">修改</a>
-          <form action="./expense-tracker/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+          <a class="btn btn-secondary" href="./records/{{ this._id }}/edit">修改</a>
+          <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
             <button class="btn btn-danger" type="submit">刪除</button>
           </form>
         </div>
@@ -69,7 +69,7 @@
     </ul>
 
     <div class="d-flex justify-content-center my-3">
-      <a class="btn btn-warning" href="./expense-tracker/new" role="button">新增支出</a>
+      <a class="btn btn-warning" href="./records/new" role="button">新增支出</a>
     </div>
   </div>
 </div>

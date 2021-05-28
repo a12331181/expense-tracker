@@ -15,15 +15,15 @@ git clone https://github.com/a12331181/expense-tracker.git
 ```
 cd expense-tracker
 ```
-##### Create seed
+## Create seed
 
-## install mongoose first
+##### Install mongoose first
 
 ```
 npm install mongoose
 ```
 
-## next,run the seed
+##### Run the seed
 
 ```
 npm run seed

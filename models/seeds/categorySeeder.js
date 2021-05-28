@@ -22,6 +22,11 @@ db.once('open', () => {
     {
       "name": "其他",
       "icon": "fas fa-pen",
+    }).then(() => {
+      console.log('insert data...')
+      return db.close()
+    }).then(() => {
+      console.log('database close...')
     })
   }
 )

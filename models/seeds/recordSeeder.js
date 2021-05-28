@@ -32,6 +32,11 @@ db.once('open', () => {
       "category": "其他",
       "date": "2019-01-29",
       "amount": 600
+    }).then(() => {
+      console.log('insert data...')
+      return db.close()
+    }).then(() => {
+      console.log('database close...')
     })
   }
 )
